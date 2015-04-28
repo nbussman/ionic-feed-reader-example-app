@@ -17,3 +17,20 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+.controller('FeedController', function($scope, $http) {
+    // init a empty scope variable 
+    $scope.posts = [];
+    
+    // set the feed url
+    var url = "http://rss.cnn.com/rss/cnn_topstories.rss";
+    // set the url to google, to convert the cml feed to json
+    var google_converter = "//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=";
+
+    // start the request
+    $http.jsonp(google_converter+ encodeURIComponent(url))
+      .then(function(res){
+        // after the request is successful, pass 
+        // the result to the view
+        $scope.posts = res.data.responseData.feed.entries;
+      });
+});
