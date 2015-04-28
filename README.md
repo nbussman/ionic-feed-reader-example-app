@@ -1,7 +1,7 @@
 # ionic-feed-reader-example-app
 An app that graps the graps the rss feed of CNN and puts it into a list.
-
-Base is the ionic starter. 
+This app is very basic. The only propose is to demonstrate the ionic framework in my master thesis.
+The project bases on the ionic blank themplate. 
 #Install
 
 ```
