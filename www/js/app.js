@@ -24,13 +24,13 @@ angular.module('starter', ['ionic'])
     // set the feed url
     var url = "http://rss.cnn.com/rss/cnn_topstories.rss";
     // set the url to google, to convert the cml feed to json
-    var google_converter = "//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=";
+    var google_converter = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=";
 
     // start the request
-    $http.jsonp(google_converter+ encodeURIComponent(url))
-      .then(function(res){
-        // after the request is successful, pass 
-        // the result to the view
-        $scope.posts = res.data.responseData.feed.entries;
-      });
+    var request = $http.jsonp(google_converter+ encodeURIComponent(url));
+    // after the request is successful
+    request.success(function(res){
+      // pass the requested entries to the view
+      $scope.posts = res.responseData.feed.entries;
+    });
 });

@@ -21,8 +21,7 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="starter">
-
+  <body ng-app="starter" ng-controller="FeedController">
     <ion-pane ng-controller="FeedController">
       <ion-header-bar class="bar-stable">
         <h1 class="title">CNN Feed Reader</h1>
@@ -31,10 +30,12 @@
         <ion-list>
           <ion-item ng-repeat="post in posts">
             <h2>{{post.title}}</h2>
-            {{post.content}}
+            <p>{{post.content}}</p>
           </ion-item>
         </ion-list>
       </ion-content>
     </ion-pane>
   </body>
 </html>
+
+
